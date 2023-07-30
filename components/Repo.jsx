@@ -3,7 +3,12 @@ import Link from 'next/link';
 import { FaStar, FaCodeBranch, FaEye } from 'react-icons/fa';
 
 async function fetchRepos(name) {
-    const response = await fetch(`https://api.github.com/repos/BryteLitty/${name}`);
+    const response = await fetch(`https://api.github.com/repos/BryteLitty/${name}`,
+    {
+        next: {
+            revalidate: 60,
+        }
+    });
     const repo = await response.json();
     return repo;
 }
