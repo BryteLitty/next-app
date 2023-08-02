@@ -1,18 +1,9 @@
 import React from 'react';
 import Link from 'next/link';
 
-// fetch courses
-
-const fetchCourses = async () => {
-    const response = await fetch('http://localhost:3000/api/courses');
-    const courses = await response.json();
-    return courses;
-}
 
 
-const Courses = async () => {
-    const courses = await fetchCourses();
-    // console.log(courses);
+const Courses = ({courses}) => {
 
   return (
     <div className='courses'>
